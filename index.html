@@ -333,6 +333,13 @@
               </div>
             </div>
             <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1" for="phone">Numéro de téléphone</label>
+              <div class="relative">
+                <input autocomplete="tel" maxlength="20" class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all placeholder:text-outline/50" id="phone" placeholder="Ex : 06 12 34 56 78" type="tel"/>
+                <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline/40">call</span>
+              </div>
+            </div>
+            <div class="space-y-2">
               <label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant ml-1" for="location">Ville / Région</label>
               <div class="relative">
                 <input autocomplete="address-level2" maxlength="120" class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all placeholder:text-outline/50" id="location" placeholder="Ex : Lyon, France" type="text"/>
@@ -700,6 +707,7 @@
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
     const location = document.getElementById("location").value.trim();
 
     // Anti-spam : si le honeypot est rempli, c'est un bot → on simule un succès sans rien envoyer.
@@ -723,6 +731,7 @@
     const payload = {
       name,
       email,
+      phone,
       location,
       interets: state.answers.interets || [],
       secteur: (state.answers.secteur || [])[0] || null,
